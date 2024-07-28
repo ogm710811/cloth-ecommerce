@@ -5,13 +5,15 @@ import './sign-up-form.styles.scss'
 import Button from "../button/button.component";
 
 
-const SignUpFormComponent = () => {
+const SignUpForm = () => {
     const initialFormFields = {
         displayName: '',
         email: '',
         password: '',
         confirmPassword: ''
     }
+
+    // const {setCurrentUser} = useContext(UserContext)
 
     const [formFields, setFormFields] = useState(initialFormFields)
     const {displayName, email, password, confirmPassword} = formFields
@@ -32,6 +34,7 @@ const SignUpFormComponent = () => {
         try {
             const {user} = await createAuthUserWithEmailAndPassword(email, password)
             await createUserDocumentFromAuth(user, {displayName})
+            // setCurrentUser(user)
             resetFormFields();
         }
         catch (e) {
@@ -40,6 +43,7 @@ const SignUpFormComponent = () => {
             } else {
                 console.log('error creating user with email and password', e)
             }
+            resetFormFields();
         }
     }
 
@@ -100,4 +104,4 @@ const SignUpFormComponent = () => {
     )
 }
 
-export default SignUpFormComponent;
+export default SignUpForm;
