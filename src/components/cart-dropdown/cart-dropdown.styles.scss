@@ -1,8 +1,15 @@
+.d-block {
+  display: flex;
+}
+
+.d-none {
+  display: none;
+}
+
 .cart-dropdown-container {
   position: absolute;
-  width: 240px;
-  height: 340px;
-  display: flex;
+  width: 320px;
+  max-height: 420px;
   flex-direction: column;
   padding: 20px;
   border: 1px solid black;
