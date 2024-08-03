@@ -8,13 +8,31 @@
     "plugin:import/recommended",
     "plugin:react/jsx-runtime"
   ],
-  "plugins": ["react", "import"],
+  "plugins": [
+    "react",
+    "import"
+  ],
   "rules": {
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
-    "indent": ["error", 2],
-    "linebreak-style": ["warn", "unix"],
-    "quotes": ["error", "single"]
+    "indent": [
+      "error",
+      2
+    ],
+    "linebreak-style": [
+      "warn",
+      "unix"
+    ],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ]
   },
   "parserOptions": {
     "ecmaVersion": 2021,
@@ -35,7 +53,10 @@
     },
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx"]
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
       }
     }
   }

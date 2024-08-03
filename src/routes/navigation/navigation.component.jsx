@@ -9,8 +9,8 @@ import { UserContext } from '../../contexts/user.context';
 import { signOutUser } from '../../utils/firebase.utils';
 
 const Navigation = () => {
-  const { currentUser} = useContext(UserContext);
-  const { isCartOpen } = useContext(CartContext);
+  const {currentUser} = useContext(UserContext);
+  const {isCartOpen} = useContext(CartContext);
   // console.log(currentUser)
 
   const signOutHandler = async () => {
@@ -27,17 +27,15 @@ const Navigation = () => {
           <div className="logo">{<CrownLogo/>}</div>
         </Link>
         <div className="nav-links-container">
-          <Link className="nav-link" to="/shop">
-                        SHOP
-          </Link>
+          <Link className="nav-link" to="/shop">SHOP</Link>
           {
             currentUser
               ? <Link onClick={signOutHandler} to="/">SIGN OUT</Link>
               : <Link className="nav-link" to="/auth">SIGN IN</Link>
           }
-          <CartIcon />
+          <CartIcon/>
         </div>
-        {isCartOpen && <CartDropdown />}
+        {isCartOpen && <CartDropdown/>}
       </div>
       <Outlet/>
     </Fragment>
