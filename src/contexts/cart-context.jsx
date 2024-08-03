@@ -24,9 +24,9 @@ const removeCartItem = (cartItems, productToRemove) => {
   return updatedCartItems;
 }
 
-const removeCartProduct = (cartItems, productToRemove) => {
+const clearCartItem = (cartItems, cartItemToClear) => {
   const updatedCartItems = [...cartItems];
-  const existingIndex = updatedCartItems.findIndex((item) => item.id === productToRemove.id);
+  const existingIndex = updatedCartItems.findIndex((item) => item.id === cartItemToClear.id);
   if (existingIndex !== -1) {
     updatedCartItems.splice(existingIndex, 1);
   }
@@ -41,7 +41,7 @@ export const CartContext = createContext({
   totalCartPrice: 0,
   addItemToCart: () => {},
   removeItemFromCart: () => {},
-  removeProductFromCart: () => {}
+  clearItemFromCart: () => {}
 });
 
 
@@ -73,8 +73,8 @@ export const CartProvider = ({children}) => {
     setCartItems(removeCartItem(cartItems, productToRemove));
   }
 
-  const removeProductFromCart = (productToRemove) => {
-    setCartItems(removeCartProduct(cartItems, productToRemove));
+  const clearItemFromCart = (productToRemove) => {
+    setCartItems(clearCartItem(cartItems, productToRemove));
   }
 
   const value = {
@@ -85,7 +85,7 @@ export const CartProvider = ({children}) => {
     totalCartPrice,
     addItemToCart,
     removeItemFromCart,
-    removeProductFromCart
+    clearItemFromCart
   };
 
   return (

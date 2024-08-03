@@ -1,5 +1,7 @@
 {
   "extends": [
+    "react-app",
+    "react-app/jest",
     "eslint:recommended",
     "plugin:import/errors",
     "plugin:react/recommended",
@@ -9,9 +11,9 @@
   "plugins": ["react", "import"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "react/prop-types": 0,
+    "react/prop-types": "off",
     "indent": ["error", 2],
-    "linebreak-style": 1,
+    "linebreak-style": ["warn", "unix"],
     "quotes": ["error", "single"]
   },
   "parserOptions": {
