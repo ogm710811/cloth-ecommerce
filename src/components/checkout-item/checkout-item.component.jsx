@@ -8,15 +8,15 @@ const CheckoutItem = ({cartItem}) => {
 
   const clearItemFromCartHandler = () => {
     clearItemFromCart(cartItem);
-  }
+  };
 
   const addItemHandler = () => {
-    addItemToCart(cartItem)
-  }
+    addItemToCart(cartItem);
+  };
 
   const removeItemHandler = () => {
-    removeItemFromCart(cartItem)
-  }
+    removeItemFromCart(cartItem);
+  };
 
   return (
     <div className='checkout-item-container'>
@@ -33,6 +33,6 @@ const CheckoutItem = ({cartItem}) => {
       <span className='remove-button' onClick={clearItemFromCartHandler}>&#10005;</span>
     </div>
   );
-}
+};
 
 export default CheckoutItem;

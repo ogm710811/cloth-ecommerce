@@ -7,6 +7,6 @@ const StoreDirectory = ({categories}) => (
       <CategoryItem key={id} title={title} imageUrl={imageUrl}/>
     ))}
   </div>
-)
+);
 
 export default StoreDirectory;

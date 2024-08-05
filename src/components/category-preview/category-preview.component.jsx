@@ -16,7 +16,7 @@ const CategoryPreview = ({title, products}) => {
         }
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default CategoryPreview;

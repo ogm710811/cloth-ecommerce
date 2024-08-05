@@ -1,4 +1,4 @@
-import './category-item.styles.scss'
+import './category-item.styles.scss';
 
 const CategoryItem = ({imageUrl, title}) => (
   <div className="category-item-container">
@@ -8,6 +8,6 @@ const CategoryItem = ({imageUrl, title}) => (
       <p>Shop now</p>
     </div>
   </div>
-)
+);
 
 export default CategoryItem;

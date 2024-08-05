@@ -14,7 +14,7 @@ const CategoriesPreview = (props) => {
         ))
       }
     </Fragment>
-  )
-}
+  );
+};
 
 export default CategoriesPreview;
