@@ -27,11 +27,11 @@ const Home = () => {
       'title': 'mens',
       'imageUrl': 'https://i.ibb.co/R70vBrQ/men.png'
     }
-  ]
+  ];
 
   return (
     <StoreDirectory categories={categories} />
   );
-}
+};
 
 export default Home;

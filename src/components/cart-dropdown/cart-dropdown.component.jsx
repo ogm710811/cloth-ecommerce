@@ -13,12 +13,12 @@ const CartDropdown = () => {
 
   const dropdownContainerHandler = () => {
     setIsDisplay(!isDisplay);
-  }
+  };
 
   const navigationHandler = () => {
-    navigate('/checkout')
-    dropdownContainerHandler()
-  }
+    navigate('/checkout');
+    dropdownContainerHandler();
+  };
 
   return (
     <div className={`cart-dropdown-container ${isDisplay ? 'd-block' : 'd-none'}`}>
@@ -31,7 +31,7 @@ const CartDropdown = () => {
       </div>
       <Button onClick={navigationHandler}>GO TO CHECKOUT</Button>
     </div>
-  )
-}
+  );
+};
 
 export default CartDropdown;

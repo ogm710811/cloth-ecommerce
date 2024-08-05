@@ -7,13 +7,13 @@ import { CategoriesContext } from '../../contexts/categories-context';
 
 const Category = () => {
   const {category} = useParams();
-  const {categoriesMap} = useContext(CategoriesContext)
+  const {categoriesMap} = useContext(CategoriesContext);
 
   // Memoization for performance
   // Using useMemo around itemsInCategory ensures that the variable is only recalculated when categoriesMap or category
   // changes, thus preventing unnecessary re-renders.
   const itemsInCategory = useMemo(() => categoriesMap[category], [categoriesMap, category]);
-  console.log(itemsInCategory)
+  console.log(itemsInCategory);
 
   return (
     <Fragment>
@@ -25,6 +25,6 @@ const Category = () => {
       </div>
     </Fragment>
   );
-}
+};
 
 export default Category;

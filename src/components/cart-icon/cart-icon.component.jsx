@@ -8,14 +8,14 @@ const CartIcon = () => {
 
   const isCartOpenToggleHandler = () => {
     setIsCartOpen(!isCartOpen);
-  }
+  };
 
   return (
     <div className="cart-icon-container" onClick={isCartOpenToggleHandler}>
       <ShoppingCartIcon className="shopping-icon" />
       <span className="item-count">{itemCount}</span>
     </div>
-  )
-}
+  );
+};
 
 export default CartIcon;

@@ -13,7 +13,7 @@ const FormInput = ({label, inputOptions}) => {
                 </label>
       }
     </div>
-  )
-}
+  );
+};
 
 export default FormInput;

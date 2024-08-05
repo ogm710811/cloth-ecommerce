@@ -28,12 +28,12 @@ const Checkout = () => {
       {cartItems.map((item) => {
         return (
           <CheckoutItem key={item.id} cartItem={item} />
-        )
+        );
       })}
       <span className='total'>Total: $ {totalCartPrice}</span>
     </div>
 
-  )
-}
+  );
+};
 
 export default Checkout;

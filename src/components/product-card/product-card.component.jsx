@@ -1,4 +1,4 @@
-import './product-card.styles.scss'
+import './product-card.styles.scss';
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart-context';
 import Button from '../button/button.component';
@@ -24,7 +24,7 @@ const ProductCard = ({product}) => {
       >Add to cart
       </Button>
     </div>
-  )
-}
+  );
+};
 
 export default ProductCard;

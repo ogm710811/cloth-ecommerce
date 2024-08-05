@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase.utils';
+import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth } from '../../utils/firebase/firebase.utils';
 import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
-import './sign-up-form.styles.scss'
+import './sign-up-form.styles.scss';
 
 
 const SignUpForm = () => {
@@ -11,41 +11,40 @@ const SignUpForm = () => {
     email: '',
     password: '',
     confirmPassword: ''
-  }
+  };
 
   // const {setCurrentUser} = useContext(UserContext)
 
-  const [formFields, setFormFields] = useState(initialFormFields)
-  const {displayName, email, password, confirmPassword} = formFields
+  const [formFields, setFormFields] = useState(initialFormFields);
+  const {displayName, email, password, confirmPassword} = formFields;
 
   const changeHandler = (e) => {
-    setFormFields({...formFields, [e.target.name]: e.target.value})
-  }
+    setFormFields({...formFields, [e.target.name]: e.target.value});
+  };
 
   const resetFormFields = () => {
     setFormFields(initialFormFields);
-  }
+  };
 
   const submitHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (password !== confirmPassword) {
-      alert('Passwords don\'t match')
+      alert('Passwords don\'t match');
     }
     try {
-      const {user} = await createAuthUserWithEmailAndPassword(email, password)
-      await createUserDocumentFromAuth(user, {displayName})
+      const {user} = await createAuthUserWithEmailAndPassword(email, password);
+      await createUserDocumentFromAuth(user, {displayName});
       // setCurrentUser(user)
       resetFormFields();
-    }
-    catch (e) {
+    } catch (e) {
       if (e.code === 'auth/email-already-in-use') {
         alert('Email already in use');
       } else {
-        console.log('error creating user with email and password', e)
+        console.log('error creating user with email and password', e);
       }
       resetFormFields();
     }
-  }
+  };
 
   return (
     <div className="sign-up-container">
@@ -54,7 +53,7 @@ const SignUpForm = () => {
       <form onSubmit={submitHandler}>
         <FormInput
           label="Display Name"
-          inputOptions = {{
+          inputOptions={{
             required: true,
             type: 'text',
             id: 'displayName',
@@ -66,7 +65,7 @@ const SignUpForm = () => {
         />
         <FormInput
           label="Email"
-          inputOptions = {{
+          inputOptions={{
             required: true,
             type: 'email',
             id: 'email',
@@ -77,7 +76,7 @@ const SignUpForm = () => {
         />
         <FormInput
           label="Password"
-          inputOptions = {{
+          inputOptions={{
             required: true,
             type: 'password',
             id: 'password',
@@ -88,7 +87,7 @@ const SignUpForm = () => {
         />
         <FormInput
           label="Confirm Password"
-          inputOptions = {{
+          inputOptions={{
             required: true,
             type: 'password',
             id: 'confirmPassword',
@@ -101,7 +100,7 @@ const SignUpForm = () => {
         <Button type="submit">Sign Up</Button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default SignUpForm;
