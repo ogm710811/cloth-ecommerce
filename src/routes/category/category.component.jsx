@@ -8,7 +8,7 @@ import { selectCategoriesMap } from '../../store/categories/categories.selector'
 
 const Category = () => {
   const {category} = useParams();
-  const {categoriesMap} = useSelector(selectCategoriesMap);
+  const categoriesMap = useSelector(selectCategoriesMap);
 
   // Memoization for performance
   // Using useMemo around itemsInCategory ensures that the variable is only recalculated when categoriesMap or category
