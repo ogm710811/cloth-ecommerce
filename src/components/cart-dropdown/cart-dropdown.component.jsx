@@ -1,14 +1,16 @@
 import './cart-dropdown.styles.scss';
-import { useContext, useState } from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { CartContext } from '../../contexts/cart-context';
+import { selectCartItems } from '../../store/cart/cart.selector';
 import Button from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 
 const CartDropdown = () => {
   const [isDisplay, setIsDisplay] = useState(true);
 
-  const {cartItems} = useContext(CartContext);
+  // const {cartItems} = useContext(CartContext);
+  const cartItems = useSelector(selectCartItems);
   const navigate = useNavigate();
 
   const dropdownContainerHandler = () => {
@@ -25,7 +27,7 @@ const CartDropdown = () => {
       <div className="cart-items">
         {
           cartItems && cartItems.map(item =>
-            <CartItem key={item.id} cartItem={item} />
+            <CartItem key={item.id} cartItem={item}/>
           )
         }
       </div>

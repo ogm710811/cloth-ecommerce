@@ -9,7 +9,8 @@
 .cart-dropdown-container {
   position: absolute;
   width: 320px;
-  max-height: 420px;
+  min-height: 420px;
+  max-height: 470px;
   flex-direction: column;
   padding: 20px;
   border: 1px solid black;
@@ -32,12 +33,12 @@
   }
 
   .cart-items::-webkit-scrollbar {
-    width: 8px;  /* Set the width of the scrollbar */
+    width: 8px; /* Set the width of the scrollbar */
   }
 
   .cart-items::-webkit-scrollbar-thumb {
     background-color: darkgrey; /* Set the color of the scrollbar thumb */
-    border-radius: 10px;        /* Round the corners of the scrollbar thumb */
+    border-radius: 10px; /* Round the corners of the scrollbar thumb */
   }
 
   .cart-items::-webkit-scrollbar-track {
