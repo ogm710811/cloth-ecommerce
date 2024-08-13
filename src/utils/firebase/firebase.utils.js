@@ -8,16 +8,7 @@ import {
   signInWithPopup,
   signOut,
 } from 'firebase/auth';
-import {
-  collection,
-  doc,
-  getDoc,
-  getDocs,
-  getFirestore,
-  query,
-  setDoc,
-  writeBatch
-} from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs, getFirestore, query, setDoc, writeBatch } from 'firebase/firestore';
 
 // Web app's Firebase configuration
 const firebaseConfig = {
@@ -60,15 +51,8 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
-
   const querySnapshot = await getDocs(q);
-  const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
-    const {title, items} = docSnapshot.data();
-    acc[title.toLowerCase()] = items;
-    return acc;
-  }, {});
-
-  return categoryMap;
+  return querySnapshot.docs.map(docSnapshot => docSnapshot.data());
 };
 
 export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
@@ -108,5 +92,5 @@ export const signOutUser = async () => {
 };
 
 export const onAuthStateChangedListener = (callback) => {
-  onAuthStateChanged(auth, callback);
+  return onAuthStateChanged(auth, callback);
 };
